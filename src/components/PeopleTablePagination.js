@@ -12,16 +12,10 @@ export default function PeopleTablePagination({
         (pageIndex) => {
           const isActive = pageIndex === page;
           const action = () => {
-            if (pageIndex !== page) {
-              onChange(pageIndex);
-            }
+            onChange(pageIndex);
           };
-
           return isActive ? (
-            <b key={pageIndex} onClick={action}>
-              {" "}
-              {pageIndex}{" "}
-            </b>
+            <b key={pageIndex}> {pageIndex} </b>
           ) : (
             <span key={pageIndex} onClick={action}>
               {" "}

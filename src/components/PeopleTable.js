@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { LOAD_PEOPLE } from "../redux/reducers/people/actions";
 import { selectPeople } from "../redux/reducers/people/selectors";
 import PeopleTablePagination from "./PeopleTablePagination";
@@ -53,10 +54,13 @@ export default function PeopleTable() {
                 <th>Gender</th>
                 <th>Hair color</th>
                 <th>Height</th>
+                <th />
               </tr>
             </thead>
             <tbody>
               {people?.data?.results.map((character) => {
+                const id = character.url.replaceAll(/\D/g, "");
+
                 return (
                   <tr key={character.name}>
                     <td>{character.name}</td>
@@ -65,6 +69,9 @@ export default function PeopleTable() {
                     <td>{character.gender}</td>
                     <td>{character.hair_color}</td>
                     <td>{character.height}</td>
+                    <td>
+                      <Link to={`/people/${id}`}>Details</Link>
+                    </td>
                   </tr>
                 );
               })}

@@ -28,6 +28,7 @@ const peopleReducer = (state = initialPeopleState, action) => {
         ...state,
         loading: false,
         data: action.payload,
+        error: false,
       };
     case LOAD_PEOPLE_FAILURE:
       return {
@@ -40,4 +41,4 @@ const peopleReducer = (state = initialPeopleState, action) => {
   }
 };
 
-export default peopleReducer
+export default peopleReducer;
